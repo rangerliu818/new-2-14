@@ -11,7 +11,7 @@ function App() {
       <div className='w-screen h-screen flex flex-col items-center justify-center flex-nowrap'>
           <button onClick={()=>{setFlag(true)}} className="btn">点我一下</button>
           {flag&&
-            <div className='mt-1'>
+            <div className='mt-1 text-white'>
               <p>情人节快乐</p>
             </div>
           }
