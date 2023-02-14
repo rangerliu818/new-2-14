@@ -1,21 +1,31 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { Loading } from './comp/loading'
 import reactLogo from './assets/react.svg'
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
   const [flag, setFlag] = useState(false)
+  const [openflag, setOpenflag] = useState(true)
+  useEffect(()=>{
+    setTimeout(()=>{
+      setOpenflag(false)
+    },2000)
+})
 
   return (
     <div className="App w-screen h-screen bg-fuchsia-100">
-      <div className='w-screen h-screen flex flex-col items-center justify-center flex-nowrap'>
-          <button onClick={()=>{setFlag(true)}} className="btn">点我一下</button>
-          {flag&&
-            <div className='mt-1 text-white'>
-              <p>情人节快乐</p>
-            </div>
-          }
-      </div>
+      {openflag?
+        <Loading />:
+        <div className='w-screen h-screen flex flex-col items-center justify-center flex-nowrap'>
+            <button onClick={()=>{setFlag(true)}} className="btn">点我一下</button>
+            {flag&&
+              <div className='mt-1'>
+                <p>情人节快乐</p>
+              </div>
+            }
+        </div>
+      }
     </div>
   )
 }
