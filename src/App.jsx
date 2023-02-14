@@ -18,12 +18,16 @@ function App() {
     <div className="App w-screen h-screen bg-fuchsia-100">
       {openflag?
         <Loading />:
-        <div className='w-screen h-screen flex flex-col items-center justify-around flex-nowrap'>
-            <button onClick={()=>{setFlag2(true)}} className="btn">点我一下</button>
-            {flag2&& <button onClick={()=>{setFlag(true)}} className="btn">再点一下嘛</button> }
+        <div className='w-screen h-screen flex flex-col items-center  justify-center flex-nowrap relative'>
+            {!flag2?<button onClick={()=>{setFlag2(true)}} className="btn">点我一下</button>: <button onClick={()=>{setFlag(true)}} className="btn">再点一下嘛</button> }
             {flag&&
-              <div className='mt-1'>
-                <p className='text-slate-700'>情人节快乐!!</p>
+              <div className='mt-12'>
+                <p className='text-slate-600 text-5xl font-bold'>情人节快乐!!</p>
+              </div>
+            }
+            {flag&&
+              <div className='absolute  bottom-4 right-4'>
+                <p className='text-slate-600  font-bold'>ps：来自多拉小同志的专属祝福哦</p>
               </div>
             }
         </div>
